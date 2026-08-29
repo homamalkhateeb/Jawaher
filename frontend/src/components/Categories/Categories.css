@@ -1,0 +1,295 @@
+/* =========================================================
+   JAWAHER — CATEGORIES
+========================================================= */
+
+.categories-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 100px 24px;
+
+  overflow: hidden;
+
+  background: var(--color-background);
+}
+
+
+/* =========================================================
+   Subtle Background Detail
+========================================================= */
+
+.categories-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  top: -220px;
+  left: -180px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(137, 107, 73, 0.055),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   Container
+========================================================= */
+
+.categories-container {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   Heading
+========================================================= */
+
+.categories-heading {
+  margin-bottom: 50px;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   Label
+========================================================= */
+
+.categories-heading span {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 16px;
+
+  color: var(--color-brand);
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+
+.categories-heading span::before {
+  content: "";
+
+  width: 28px;
+  height: 1px;
+
+  background: var(--color-brand-border);
+}
+
+
+/* =========================================================
+   Heading Title
+========================================================= */
+
+.categories-heading h2 {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: var(--color-text-primary);
+
+  font-size: clamp(32px, 4vw, 52px);
+
+  line-height: 1.3;
+
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   Products Grid
+========================================================= */
+
+.categories-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   Messages
+========================================================= */
+
+.categories-message {
+  padding: 35px 20px;
+
+  text-align: center;
+
+  color: var(--color-text-secondary);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+.categories-error {
+  color: #a33a3a;
+}
+
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .categories-section {
+    padding: 80px 24px;
+  }
+
+
+  .categories-heading {
+    margin-bottom: 40px;
+  }
+
+
+  .categories-heading h2 {
+    font-size: clamp(32px, 5vw, 46px);
+  }
+
+
+  .categories-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .categories-section {
+    padding: 70px 20px;
+  }
+
+
+  .categories-heading {
+    margin-bottom: 32px;
+
+    text-align: center;
+  }
+
+
+  .categories-heading span {
+    justify-content: center;
+
+    margin-bottom: 13px;
+
+    font-size: 13px;
+  }
+
+
+  .categories-heading span::before {
+    width: 22px;
+  }
+
+
+  .categories-heading h2 {
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    font-size: 31px;
+
+    line-height: 1.35;
+
+    letter-spacing: -0.2px;
+  }
+
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+
+  .categories-message {
+    padding: 25px 15px;
+
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   Small Mobile
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .categories-section {
+    padding: 60px 16px;
+  }
+
+
+  .categories-heading {
+    margin-bottom: 28px;
+  }
+
+
+  .categories-heading span {
+    font-size: 12px;
+  }
+
+
+  .categories-heading h2 {
+    font-size: 28px;
+  }
+
+}
+
+
+/* =========================================================
+   Reduced Motion
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .categories-section::before {
+    display: none;
+  }
+
+}

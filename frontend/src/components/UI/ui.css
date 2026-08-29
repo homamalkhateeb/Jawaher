@@ -1,0 +1,21 @@
+.ui-loading,
+.ui-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 24px;
+  text-align: center;
+}
+
+.ui-error {
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ui-error button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

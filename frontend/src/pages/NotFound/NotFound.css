@@ -1,0 +1,33 @@
+.not-found {
+  min-height: 60vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.not-found-content h1 {
+  margin: 0;
+
+  font-size: 80px;
+}
+
+.not-found-content h2 {
+  margin: 10px 0;
+}
+
+.not-found-content p {
+  margin: 10px 0 25px;
+}
+
+.not-found-link {
+  display: inline-block;
+
+  padding: 12px 24px;
+
+  text-decoration: none;
+  border-radius: 6px;
+}

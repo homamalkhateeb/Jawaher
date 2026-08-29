@@ -1,0 +1,426 @@
+
+/* =========================================================
+   JAWAHER — CATEGORY CARD
+========================================================= */
+
+.category-card {
+  position: relative;
+
+  display: block;
+
+  overflow: hidden;
+
+  min-width: 0;
+
+  background: #ffffff;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-lg);
+
+  color: inherit;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 6px 22px rgba(45, 37, 29, 0.045);
+
+  transition:
+    transform var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+
+/* =========================================================
+   Hover
+========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .category-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--color-brand-border);
+
+    box-shadow:
+      0 16px 36px rgba(45, 37, 29, 0.09);
+  }
+
+}
+
+
+/* =========================================================
+   Keyboard Focus
+========================================================= */
+
+.category-card:focus-visible {
+  outline: 2px solid var(--color-brand);
+
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   Image
+========================================================= */
+
+.category-card-image {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #f2f0ec;
+
+  color: var(--color-text-muted);
+}
+
+
+/* =========================================================
+   Image
+========================================================= */
+
+.category-card-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform var(--transition-slow);
+}
+
+
+/* =========================================================
+   Image Overlay
+========================================================= */
+
+.category-card-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(30, 25, 20, 0.18),
+      transparent 45%
+    );
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition:
+    opacity var(--transition-normal);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+  .category-card:hover
+  .category-card-image img {
+    transform: scale(1.045);
+  }
+
+
+  .category-card:hover
+  .category-card-image::after {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================================
+   No Image
+========================================================= */
+
+.category-card-no-image {
+  width: 100%;
+  height: 100%;
+
+  min-height: 220px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  color: var(--color-text-muted);
+
+  font-size: 14px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f4f1ec,
+      #ebe7e0
+    );
+}
+
+
+/* =========================================================
+   Content
+========================================================= */
+
+.category-card-content {
+  position: relative;
+
+  min-height: 135px;
+
+  padding: 20px 20px 22px;
+
+  text-align: right;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   Title
+========================================================= */
+
+.category-card-content h3 {
+  margin: 0 0 9px;
+
+  color: var(--color-text-primary);
+
+  font-size: 21px;
+
+  line-height: 1.5;
+
+  font-weight: 650;
+
+  transition:
+    color var(--transition-fast);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+  .category-card:hover
+  .category-card-content h3 {
+    color: var(--color-brand);
+  }
+
+}
+
+
+/* =========================================================
+   Description
+========================================================= */
+
+.category-card-content p {
+  display: -webkit-box;
+
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  overflow: hidden;
+
+  -webkit-box-orient: vertical;
+
+  line-clamp: 2;
+}
+
+
+/* =========================================================
+   Arrow
+========================================================= */
+
+.category-card-content::after {
+  content: "←";
+
+  position: absolute;
+
+  left: 20px;
+  bottom: 20px;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 50%;
+
+  color: var(--color-text-secondary);
+
+  font-size: 14px;
+
+  opacity: 0;
+
+  transform: translateX(5px);
+
+  transition:
+    opacity var(--transition-fast),
+    transform var(--transition-fast),
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+  .category-card:hover
+  .category-card-content::after {
+    opacity: 1;
+
+    transform: translateX(0);
+
+    background: var(--color-brand);
+
+    border-color: var(--color-brand);
+
+    color: #ffffff;
+  }
+
+}
+
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .category-card-content {
+    min-height: 128px;
+
+    padding: 18px 18px 20px;
+  }
+
+
+  .category-card-content h3 {
+    font-size: 20px;
+  }
+
+
+  .category-card-content p {
+    font-size: 13px;
+  }
+
+
+  .category-card-content::after {
+    left: 18px;
+    bottom: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .category-card {
+    border-radius: var(--radius-md);
+
+    box-shadow:
+      0 5px 18px rgba(45, 37, 29, 0.045);
+  }
+
+
+  .category-card-image {
+    aspect-ratio: 16 / 9;
+  }
+
+
+  .category-card-content {
+    min-height: auto;
+
+    padding: 17px 17px 19px;
+  }
+
+
+  .category-card-content h3 {
+    margin-bottom: 7px;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+  }
+
+
+  .category-card-content p {
+    font-size: 13px;
+
+    line-height: 1.75;
+  }
+
+
+  .category-card-content::after {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   Small Mobile
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .category-card-content {
+    padding: 16px;
+  }
+
+
+  .category-card-content h3 {
+    font-size: 18px;
+  }
+
+
+  .category-card-content p {
+    font-size: 12.5px;
+  }
+
+}
+
+
+/* =========================================================
+   Reduced Motion
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .category-card,
+  .category-card-image img,
+  .category-card-image::after,
+  .category-card-content h3,
+  .category-card-content::after {
+    transition: none;
+  }
+
+}

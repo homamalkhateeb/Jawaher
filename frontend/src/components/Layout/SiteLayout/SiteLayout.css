@@ -1,0 +1,107 @@
+/* =========================
+   Site Layout
+========================= */
+
+.site-layout {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #faf8f5;
+
+  color: #29241f;
+}
+
+
+/* =========================
+   Main Content
+========================= */
+
+.site-layout-content {
+  flex: 1;
+
+  width: 100%;
+
+  min-width: 0;
+}
+
+
+/* =========================
+   Smooth Page Scrolling
+========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/*
+  Navbar is sticky.
+
+  This prevents anchored sections such as
+  #contact from hiding underneath the navbar.
+*/
+
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+
+/* =========================
+   Selection
+========================= */
+
+::selection {
+  background: #c8aa86;
+  color: #ffffff;
+}
+
+
+/* =========================
+   Focus
+========================= */
+
+:focus-visible {
+  outline: 2px solid #a17b50;
+  outline-offset: 3px;
+}
+
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 768px) {
+
+  section[id] {
+    scroll-margin-top: 82px;
+  }
+
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 600px) {
+
+  section[id] {
+    scroll-margin-top: 76px;
+  }
+
+}
+
+
+/* =========================
+   Reduced Motion
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+}
