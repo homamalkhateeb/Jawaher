@@ -1,22 +1,47 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import {
+  Link,
+  NavLink,
+  useLocation,
+} from 'react-router-dom'
 
 import './Navbar.css'
 
 function Navbar() {
-
   const [isMenuOpen, setIsMenuOpen] =
     useState(false)
 
+  const location = useLocation()
 
   function closeMenu() {
     setIsMenuOpen(false)
   }
 
+  function handleContactClick() {
+    closeMenu()
+
+    /*
+      إذا كنا بالفعل داخل الصفحة الرئيسية
+      والـ hash هو contact، فلن يحدث تغيير
+      في React Router عند الضغط مرة أخرى.
+
+      لذلك نقوم بالـ scroll يدويًا في هذه الحالة.
+    */
+    if (
+      location.pathname === '/' &&
+      location.hash === '#contact'
+    ) {
+      document
+        .getElementById('contact')
+        ?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        })
+    }
+  }
 
   return (
     <header className="site-navbar">
-
       <div className="site-navbar-container">
 
         {/* =========================
@@ -33,9 +58,7 @@ function Navbar() {
           <span className="site-navbar-logo-name">
             جواهر
           </span>
-
         </NavLink>
-
 
         {/* =========================
             Desktop Navigation
@@ -45,7 +68,6 @@ function Navbar() {
           className="site-navbar-links"
           aria-label="التنقل الرئيسي"
         >
-
           <NavLink
             to="/"
             end
@@ -57,7 +79,6 @@ function Navbar() {
           >
             الرئيسية
           </NavLink>
-
 
           <NavLink
             to="/products"
@@ -71,31 +92,30 @@ function Navbar() {
             المنتجات
           </NavLink>
 
-
-          <a
-            href="/#contact"
+          <Link
+            to="/#contact"
             className="navbar-link"
+            onClick={handleContactClick}
           >
             تواصل معنا
-          </a>
-
+          </Link>
         </nav>
-
 
         {/* =========================
             Desktop CTA
         ========================= */}
 
-        <a
-          href="/#contact"
+        <Link
+          to="/#contact"
           className="navbar-contact-button"
+          onClick={handleContactClick}
         >
           اطلب الآن
+
           <span aria-hidden="true">
             ←
           </span>
-        </a>
-
+        </Link>
 
         {/* =========================
             Mobile Menu Button
@@ -103,9 +123,8 @@ function Navbar() {
 
         <button
           type="button"
-          className={`navbar-menu-button ${
-            isMenuOpen ? 'open' : ''
-          }`}
+          className={`navbar-menu-button ${isMenuOpen ? 'open' : ''
+            }`}
           onClick={() =>
             setIsMenuOpen(
               (previous) => !previous
@@ -119,15 +138,12 @@ function Navbar() {
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
         >
-
           <span />
           <span />
           <span />
-
         </button>
 
       </div>
-
 
       {/* =========================
           Mobile Navigation
@@ -135,12 +151,10 @@ function Navbar() {
 
       <nav
         id="mobile-navigation"
-        className={`site-navbar-mobile ${
-          isMenuOpen ? 'open' : ''
-        }`}
+        className={`site-navbar-mobile ${isMenuOpen ? 'open' : ''
+          }`}
         aria-label="التنقل للجوال"
       >
-
         <div className="site-navbar-mobile-inner">
 
           <NavLink
@@ -156,7 +170,6 @@ function Navbar() {
             الرئيسية
           </NavLink>
 
-
           <NavLink
             to="/products"
             end
@@ -170,20 +183,18 @@ function Navbar() {
             المنتجات
           </NavLink>
 
-
-          <a
-            href="/#contact"
+          <Link
+            to="/#contact"
             className="navbar-mobile-link"
-            onClick={closeMenu}
+            onClick={handleContactClick}
           >
             تواصل معنا
-          </a>
+          </Link>
 
-
-          <a
-            href="/#contact"
+          <Link
+            to="/#contact"
             className="navbar-mobile-cta"
-            onClick={closeMenu}
+            onClick={handleContactClick}
           >
             <span>
               اطلب الآن
@@ -192,12 +203,10 @@ function Navbar() {
             <span aria-hidden="true">
               ←
             </span>
-          </a>
+          </Link>
 
         </div>
-
       </nav>
-
     </header>
   )
 }

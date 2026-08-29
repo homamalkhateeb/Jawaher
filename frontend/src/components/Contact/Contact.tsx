@@ -1,12 +1,16 @@
-import { useEffect, useState } from 'react'
+import {
+  useEffect,
+  useState,
+} from 'react'
+
 import {
   getSiteSettings,
-  
 } from '../../api/services/siteSettings'
 
-import type{
-  SiteSettings
+import type {
+  SiteSettings,
 } from '../../types/siteSettings'
+
 import './Contact.css'
 
 function Contact() {
@@ -25,6 +29,27 @@ function Contact() {
         )
       })
   }, [])
+
+  /*
+    WhatsApp يحتاج الرقم بدون:
+    +
+    مسافات
+    -
+    أقواس
+
+    مثال:
+    +963 999 123 456
+
+    يصبح:
+    963999123456
+  */
+  const whatsappUrl =
+    settings?.whatsapp
+      ? `https://wa.me/${settings.whatsapp.replace(
+        /\D/g,
+        ''
+      )}`
+      : null
 
   return (
     <section
@@ -55,22 +80,23 @@ function Contact() {
 
         <div className="contact-details">
 
-          {settings?.whatsapp && (
-            <a
-              href={`https://wa.me/${settings.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-item"
-            >
-              <span className="contact-item-label">
-                واتساب
-              </span>
+          {settings?.whatsapp &&
+            whatsappUrl && (
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-item"
+              >
+                <span className="contact-item-label">
+                  واتساب
+                </span>
 
-              <span className="contact-item-value">
-                {settings.whatsapp}
-              </span>
-            </a>
-          )}
+                <span className="contact-item-value">
+                  {settings.whatsapp}
+                </span>
+              </a>
+            )}
 
           {settings?.phone && (
             <a
@@ -104,6 +130,7 @@ function Contact() {
 
           {settings?.address && (
             <div className="contact-item">
+
               <span className="contact-item-label">
                 العنوان
               </span>
@@ -111,6 +138,7 @@ function Contact() {
               <span className="contact-item-value">
                 {settings.address}
               </span>
+
             </div>
           )}
 
@@ -144,4 +172,3 @@ function Contact() {
 }
 
 export default Contact
-

@@ -28,32 +28,12 @@
 
 
 /* =========================
-   Smooth Page Scrolling
-========================= */
-
-html {
-  scroll-behavior: smooth;
-}
-
-
-/*
-  Navbar is sticky.
-
-  This prevents anchored sections such as
-  #contact from hiding underneath the navbar.
-*/
-
-section[id] {
-  scroll-margin-top: 96px;
-}
-
-
-/* =========================
    Selection
 ========================= */
 
 ::selection {
   background: #c8aa86;
+
   color: #ffffff;
 }
 
@@ -64,9 +44,9 @@ section[id] {
 
 :focus-visible {
   outline: 2px solid #a17b50;
+
   outline-offset: 3px;
 }
-
 
 /* =========================
    Tablet
