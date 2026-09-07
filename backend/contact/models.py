@@ -12,6 +12,7 @@ class ContactMessage(models.Model):
     )
 
     email = models.EmailField(
+        max_length=254,
         blank=True
     )
 
