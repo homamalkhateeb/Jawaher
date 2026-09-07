@@ -150,13 +150,6 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.AllowAny",
     ],
 
-    "DEFAULT_THROTTLE_CLASSES": [
-        "rest_framework.throttling.AnonRateThrottle",
-    ],
-
-    "DEFAULT_THROTTLE_RATES": {
-        "anon": "5/min",
-    },
 
     'DEFAULT_PAGINATION_CLASS':
         'core.pagination.StandardPagination',
